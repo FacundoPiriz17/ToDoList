@@ -1,15 +1,24 @@
 import { TiTick } from "react-icons/ti";
 import { useState } from "react";
 
-export function TaskForm() {
-    const [nombreTask, setNombreTask] = useState("");
-    const [descTask, setDescTask] = useState("");
-    const [priority, setPriority] = useState("");
+export function TaskForm( {addNewTask} ) {
+    const [taskName, setName] = useState("");
+    const [taskDescription, setDescription] = useState("");
+    const [taskPriority, setPriority] = useState("");
 
     const submitForm = () => {
-        setNombreTask("");
-        setDescTask("");
+        const newTask = {
+            text: taskName,
+            description: taskDescription,
+            priority: taskPriority,
+            isDone: false
+        }
+
+        setName("");
+        setDescription("");
         setPriority("");
+
+        addNewTask(newTask);
     }
 
     return (
@@ -18,15 +27,15 @@ export function TaskForm() {
                 <div className="w-96 text-center">
                     <div className="gap-2 mb-4 ">
                         <input
-                            type={"text"} value={nombreTask}
+                            type={"text"} value={taskName}
                             placeholder={"Escriba el nombre de su tarea"}
                             onChange={(e) => setNombreTask(e.target.value)}
                             className={"flex-1 px-4 py-2 rounded-lg text-black focus:none focus:ring-2 focus:ring-teal-700"}/>
-                        <input type={"text"} value={descTask}
+                        <input type={"text"} value={taskDescription}
                                placeholder={"Escriba la descripción de su tarea"}
                                onChange={(e) => setDescTask(e.target.value)}
                                className={"flex-1 px-4 py-2 rounded-lg text-black focus:none focus:ring-2 focus:ring-teal-700"}/>
-                        <input type={"text"} value={priority}
+                        <input type={"text"} value={taskPriority}
                                placeholder={"Escriba la prioridad de su tarea"}
                                onChange={(e) => setPriority(e.target.value)}
                                className={"flex-1 px-4 py-2 rounded-lg text-black focus:none focus:ring-2 focus:ring-teal-700"}/>

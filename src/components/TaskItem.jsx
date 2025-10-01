@@ -13,15 +13,16 @@ const mostrarPrioridad = (priority) => {
   return 'low'
 }
 
-const TaskItem = ({text, id, deleteTask, markDone, isRealiced, priority}) => {
+const TaskItem = ({title, description, id, deleteTask, markDone, isDone, priority}) => {
   return (
     <div
       className={
-        isRealiced
+        isDone
           ? 'bg-green-600 w-full flex justify-between p-3 text-white'
           : 'bg-yellow-300 w-full flex justify-between p-3 text-white'
       }>
-      <span> {text} </span>
+      <span> {title} </span>
+      <span> {description} </span>
       <span> {mostrarPrioridad(priority)} </span>
       <section className="flex gap-3">
         <button onClick={() => deleteTask(id)}>
@@ -30,9 +31,9 @@ const TaskItem = ({text, id, deleteTask, markDone, isRealiced, priority}) => {
             <MdDelete color="red" size={20} />{' '}
           </i>
         </button>
-        <button onClick={() => markDone(id, isRealiced)}>
+        <button onClick={() => markDone(id, isDone)}>
           {' '}
-          {isRealiced ? (
+          {isDone ? (
             <i className="cursor-pointer">
               <RxCross1 color="red" size={20} />
             </i>
