@@ -13,13 +13,21 @@ const mostrarPrioridad = (priority) => {
   return 'low'
 }
 
-const TaskItem = ({title, description, id, deleteTask, markDone, isDone, priority}) => {
+const TaskItem = ({
+  title,
+  description,
+  id,
+  deleteTask,
+  markDone,
+  isDone,
+  priority,
+}) => {
   return (
     <div
       className={
         isDone
-          ? 'bg-green-600 w-full flex justify-between p-3 text-white'
-          : 'bg-yellow-300 w-full flex justify-between p-3 text-white'
+          ? 'bg-green-600 w-full flex justify-between p-3 text-white rounded-3xl'
+          : 'bg-yellow-300 w-full flex justify-between p-3 text-white rounded-3xl'
       }>
       <span> {title} </span>
       <span> {description} </span>

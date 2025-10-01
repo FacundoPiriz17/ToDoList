@@ -3,13 +3,10 @@ import TaskItem from './components/TaskItem'
 import TaskList from './components/TaskList'
 
 function App() {
-
-
   return (
     <>
-      <div className="">
-        <TaskForm/>
-        <TaskList/>
+      <div className="w-full h-[100vh] ">
+        <TaskList />
       </div>
     </>
   )
