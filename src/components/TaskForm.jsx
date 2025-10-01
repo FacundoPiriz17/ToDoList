@@ -32,7 +32,7 @@ export function TaskForm({addNewTask}) {
               placeholder={'Escriba el nombre de su tarea'}
               onChange={(e) => setName(e.target.value)}
               className={
-                'flex-1 w-70 px-4 py-2 border-1 rounded-lg text-black focus:none focus:ring-2 focus:ring-teal-700'
+                  "flex-1 w-70 px-4 py-2 border border-black rounded-lg text-black focus:outline-none focus:border-teal-700 focus:ring-2 focus:ring-teal-700"
               }
             />
             <input
@@ -41,7 +41,7 @@ export function TaskForm({addNewTask}) {
               placeholder={'Escriba la descripción de su tarea'}
               onChange={(e) => setDescription(e.target.value)}
               className={
-                'flex-1 w-70 px-4 py-2 border-1  rounded-lg text-black focus:none focus:ring-2 focus:ring-teal-700'
+                  "flex-1 w-70 px-4 py-2 border border-black rounded-lg text-black focus:outline-none focus:border-teal-700 focus:ring-2 focus:ring-teal-700"
               }
             />
             <input
@@ -50,15 +50,15 @@ export function TaskForm({addNewTask}) {
               placeholder={'Escriba la prioridad de su tarea'}
               onChange={(e) => setPriority(e.target.value)}
               className={
-                'flex-1 w-70 px-4 py-2 border-1  rounded-lg text-black focus:none focus:ring-2 focus:ring-teal-700'
+                  "flex-1 w-70 px-4 py-2 border border-black rounded-lg text-black focus:outline-none focus:border-teal-700 focus:ring-2 focus:ring-teal-700"
               }
             />
           </div>
           <section className="flex flex-row justify-center">
-            <i className="text-white border-2 rounded-xl bg-green-400">
+            <i className="text-white border-2 rounded-xl bg-green-400 hover:outline hover:outline-2 hover:outline-green-700">
               <TiTick
                 onClick={() => submitForm()}
-                className={'hover:outline-green-700 size-10'}
+                className={'size-10 '}
                 cursor={'pointer'}
               />
             </i>
