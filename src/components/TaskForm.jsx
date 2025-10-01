@@ -29,11 +29,11 @@ export function TaskForm( {addNewTask} ) {
                         <input
                             type={"text"} value={taskName}
                             placeholder={"Escriba el nombre de su tarea"}
-                            onChange={(e) => setNombreTask(e.target.value)}
+                            onChange={(e) => setName(e.target.value)}
                             className={"flex-1 px-4 py-2 rounded-lg text-black focus:none focus:ring-2 focus:ring-teal-700"}/>
                         <input type={"text"} value={taskDescription}
                                placeholder={"Escriba la descripción de su tarea"}
-                               onChange={(e) => setDescTask(e.target.value)}
+                               onChange={(e) => setDescription(e.target.value)}
                                className={"flex-1 px-4 py-2 rounded-lg text-black focus:none focus:ring-2 focus:ring-teal-700"}/>
                         <input type={"text"} value={taskPriority}
                                placeholder={"Escriba la prioridad de su tarea"}
