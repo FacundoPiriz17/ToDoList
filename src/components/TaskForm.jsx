@@ -1,10 +1,11 @@
 import {TiTick} from 'react-icons/ti'
-import {useState} from 'react'
+import {useRef, useState} from 'react'
 
-export function TaskForm({addNewTask}) {
+export function TaskForm({setTasks, tasks}) {
   const [taskName, setName] = useState('')
   const [taskDescription, setDescription] = useState('')
   const [taskPriority, setPriority] = useState('')
+  const inputRef = useRef(null)
 
   const submitForm = () => {
     const newTask = {
@@ -12,13 +13,18 @@ export function TaskForm({addNewTask}) {
       description: taskDescription,
       priority: taskPriority,
       isDone: false,
+      id: taskName.length * tasks.length,
     }
-
+    inputRef.current.focus()
     setName('')
     setDescription('')
     setPriority('')
 
     addNewTask(newTask)
+  }
+
+  function addNewTask(newTask) {
+    setTasks([...tasks, newTask])
   }
 
   return (
@@ -27,12 +33,13 @@ export function TaskForm({addNewTask}) {
         <div className="w-full text-center">
           <div className="gap-2 mb-4 flex flex-col justify-center items-center">
             <input
+              ref={inputRef}
               type={'text'}
               value={taskName}
               placeholder={'Escriba el nombre de su tarea'}
               onChange={(e) => setName(e.target.value)}
               className={
-                  "flex-1 w-70 px-4 py-2 border border-black rounded-lg text-black focus:outline-none focus:border-teal-700 focus:ring-2 focus:ring-teal-700"
+                'flex-1 w-70 px-4 py-2 border border-black rounded-lg text-black focus:outline-none focus:border-teal-700 focus:ring-2 focus:ring-teal-700'
               }
             />
             <input
@@ -41,7 +48,7 @@ export function TaskForm({addNewTask}) {
               placeholder={'Escriba la descripción de su tarea'}
               onChange={(e) => setDescription(e.target.value)}
               className={
-                  "flex-1 w-70 px-4 py-2 border border-black rounded-lg text-black focus:outline-none focus:border-teal-700 focus:ring-2 focus:ring-teal-700"
+                'flex-1 w-70 px-4 py-2 border border-black rounded-lg text-black focus:outline-none focus:border-teal-700 focus:ring-2 focus:ring-teal-700'
               }
             />
             <input
@@ -50,12 +57,12 @@ export function TaskForm({addNewTask}) {
               placeholder={'Escriba la prioridad de su tarea'}
               onChange={(e) => setPriority(e.target.value)}
               className={
-                  "flex-1 w-70 px-4 py-2 border border-black rounded-lg text-black focus:outline-none focus:border-teal-700 focus:ring-2 focus:ring-teal-700"
+                'flex-1 w-70 px-4 py-2 border border-black rounded-lg text-black focus:outline-none focus:border-teal-700 focus:ring-2 focus:ring-teal-700'
               }
             />
           </div>
           <section className="flex flex-row justify-center">
-            <i className="text-white border-2 rounded-xl bg-green-400 hover:outline hover:outline-2 hover:outline-green-700">
+            <i className="text-white border-2 rounded-xl bg-green-400 hover:outline-2 hover:outline-green-700">
               <TiTick
                 onClick={() => submitForm()}
                 className={'size-10 '}

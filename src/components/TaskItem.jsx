@@ -14,23 +14,24 @@ const mostrarPrioridad = (priority) => {
 }
 
 const TaskItem = ({
-  title,
+  text,
   description,
   id,
   deleteTask,
   markDone,
   isDone,
   priority,
+  checked,
 }) => {
   return (
     <div
       className={
         isDone
-          ? 'bg-green-600 w-full flex justify-between p-3 text-white rounded-3xl'
-          : 'bg-yellow-300 w-full flex justify-between p-3 text-white rounded-3xl'
+          ? 'border-2 text-black border-green-600 w-full flex justify-between p-3  rounded-3xl'
+          : 'border-2 text-black border-yellow-300 w-full flex justify-between p-3  rounded-3xl'
       }>
-      <span> {title} </span>
-      <span> {description} </span>
+      <span> {text} </span>
+      {checked == 'Detallado' && <span> {description} </span>}
       <span> {mostrarPrioridad(priority)} </span>
       <section className="flex gap-3">
         <button onClick={() => deleteTask(id)}>
